@@ -1,14 +1,8 @@
-*,
-::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    background-color: #caf8e9;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+@import "abstracts/mixins";
+@import "abstracts/variables";
+@import "base/base";
+@import "base/typography";
+@import "components/buttons";
+@import "layouts/form";
+@import "layouts/navbar";
+@import "layouts/section-hero";

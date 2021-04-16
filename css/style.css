@@ -1,3 +1,36 @@
+@charset "UTF-8";
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+/*
+    Features Pricing Resources Login Sign Up More than just shorter links Build
+    your brand’s recognition and get detailed insights on how your links are
+    performing. Get Started Shorten a link here... Shorten It! Advanced
+    Statistics Track how your links are performing across the web with our
+    advanced statistics dashboard. Brand Recognition Boost your brand
+    recognition with each click. Generic links don’t mean a thing. Branded links
+    help instil confidence in your content. Detailed Records Gain insights into
+    who is clicking your links. Knowing when and where people engage with your
+    content helps inform better decisions. Fully Customizable Improve brand
+    awareness and content discoverability through customizable links,
+    supercharging audience engagement. Boost your links today Get Started
+    Features Link Shortening Branded Links Analytics Resources Blog Developers
+    Support Company About Our Team Careers Contact
+*/
 *,
 ::before,
 *::after {
@@ -6,8 +39,224 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #caf8e9;
-  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  width: 100%;
+  max-width: 100%; }
+
+html {
+  font-size: 62.5%; }
+
+.heading {
+  font-weight: 700; }
+  .heading__primary {
+    font-size: 7rem;
+    color: #3b3054; }
+  .heading__secondary {
+    font-size: 4rem; }
+  .heading__tertiary {
+    font-size: 3rem; }
+
+.paragraph__primary {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #9e9aa7;
+  line-height: 1.5; }
+
+.paragraph__nav {
+  font-weight: 500; }
+  .paragraph__nav:hover {
+    font-weight: 700; }
+
+.btn, .btn:link, .btn:visited {
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  box-shadow: 0.2rem 0.5rem 2rem rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 1rem 4rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
+
+.btn:active, .btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  background-color: #3b3054; }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s; }
+
+.btn__primary {
+  background-color: #2acfcf;
+  color: #fff;
+  overflow: hidden;
+  position: relative; }
+  .btn__primary::after {
+    background-color: #2acfcf; }
+
+.btn__rectangle {
+  position: relative;
+  background-color: #2acfcf;
+  border-radius: 1rem;
+  color: #fff;
+  padding: 2rem 2.5rem;
+  font-weight: 500;
+  font-size: 2rem;
+  overflow: hidden; }
+  .btn__rectangle::after {
+    background-color: #2acfcf;
+    border-radius: 1rem; }
+  .btn__rectangle:focus {
+    background-color: #6a49d0; }
+
+.circle {
+  z-index: 8;
+  overflow: hidden;
+  position: absolute;
+  background-color: #fff;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 100%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 1s ease-in; }
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0; } }
+
+.main {
+  position: relative;
+  background-color: #bfbfbf;
+  margin-top: 25rem; }
+
+#section__form {
+  position: relative;
+  top: -10rem; }
+
+.form__url {
+  background-color: #3b3054;
+  position: relative;
+  height: 20rem;
+  margin: 3rem auto;
+  margin-top: 10rem;
+  width: 80%;
+  padding: 6rem;
+  display: grid;
+  grid-template-columns: 80% 1fr;
+  border-radius: 1rem; }
+  .form__url .url {
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    font-size: 3rem;
+    color: #9e9aa7;
+    padding: 0 4rem;
+    margin-right: 3rem; }
+    .form__url .url::placeholder {
+      font-size: 2.2rem;
+      padding: 0 2rem; }
+  .form__url .btn {
+    font-weight: 700;
+    font-size: 3rem; }
+
+.error-message {
+  opacity: 0; }
+
+.error-message {
+  position: absolute;
+  bottom: 3rem;
+  left: 7rem;
+  font-size: 2rem;
+  color: #f46262; }
+
+.error .url {
+  border: 2px solid #f46262; }
+
+.shortenedUrls .urls {
+  background-color: #fff;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center; }
+  width: 80%;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  padding: 1rem 4rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5); }
+
+.shortenedUrls .result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .shortenedUrls .result .btn {
+    margin-left: 3rem; }
+  .shortenedUrls .result .shortenedLink {
+    color: #2acfcf;
+    font-weight: 700; }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15rem;
+  position: relative;
+  padding: 3rem 5rem;
+  margin: 1rem;
+  overflow: hidden;
+  max-width: 100%; }
+  .nav__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .nav__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.5rem;
+    list-style: none; }
+  .nav__link {
+    color: #9e9aa7;
+    margin-left: 4rem;
+    text-decoration: none; }
+    .nav__link:hover {
+      font-weight: 700; }
+    .nav__link.btn {
+      color: #fff;
+      padding: 1rem 4rem;
+      font-weight: 500; }
+      .nav__link.btn:hover {
+        font-weight: 700; }
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem; }
+  .hero__intro .heading__primary {
+    margin-bottom: 1rem;
+    font-size: 9rem; }
+  .hero__intro .paragraph__primary {
+    margin-bottom: 4rem;
+    font-size: 2.5rem; }

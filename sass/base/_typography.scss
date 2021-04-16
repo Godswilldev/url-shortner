@@ -1,0 +1,29 @@
+.heading {
+    font-weight: 700;
+
+    &__primary {
+        font-size: 7rem;
+        color: $Dark-Violet;
+    }
+    &__secondary {
+        font-size: 4rem;
+    }
+    &__tertiary {
+        font-size: 3rem;
+    }
+}
+
+.paragraph {
+    &__primary {
+        font-size: 2rem;
+        font-weight: 500;
+        color: $Grayish-Violet;
+        line-height: 1.5;
+    }
+    &__nav {
+        font-weight: 500;
+        &:hover {
+            font-weight: 700;
+        }
+    }
+}

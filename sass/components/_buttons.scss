@@ -1,0 +1,98 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        overflow: hidden;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all 0.2s;
+        position: relative;
+        box-shadow: 0.2rem 0.5rem 2rem rgba($color: #000000, $alpha: 0.5);
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        padding: 1rem 4rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 0.3rem;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba(#000000, 0.2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-1px);
+        box-shadow: 0 0.5rem 1rem rgba(#000000, 0.2);
+        background-color: $Dark-Violet;
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+
+    &__primary {
+        background-color: $Cyan;
+        color: #fff;
+        overflow: hidden;
+        position: relative;
+
+        &::after {
+            background-color: $Cyan;
+        }
+    }
+
+    &__rectangle {
+        position: relative;
+        background-color: $Cyan;
+        border-radius: 1rem;
+        color: #fff;
+        padding: 2rem 2.5rem;
+        font-weight: 500;
+        font-size: 2rem;
+        overflow: hidden;
+        &::after {
+            background-color: $Cyan;
+            border-radius: 1rem;
+        }
+        &:focus {
+            background-color: $Very-Dark-Blue;
+        }
+    }
+}
+
+.circle {
+    z-index: 8;
+    overflow: hidden;
+    position: absolute;
+    background-color: #fff;
+    width: 26rem;
+    height: 26rem;
+    border-radius: 100%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: scale 1s ease-in;
+}
+
+@keyframes scale {
+    to {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}

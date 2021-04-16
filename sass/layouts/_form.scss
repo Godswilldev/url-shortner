@@ -1,0 +1,82 @@
+.main {
+    position: relative;
+    background-color: $Gray;
+    margin-top: 25rem;
+}
+#section__form {
+    position: relative;
+    top: -10rem;
+}
+
+.form__url {
+    // @include absCenter2;
+    background-color: $Dark-Violet;
+    position: relative;
+    height: 20rem;
+    margin: 3rem auto;
+    margin-top: 10rem;
+    width: 80%;
+    padding: 6rem;
+    display: grid;
+    grid-template-columns: 80% 1fr;
+    border-radius: 1rem;
+
+    .url {
+        border-radius: 1rem;
+        outline: none;
+        border: none;
+        font-size: 3rem;
+        color: $Grayish-Violet;
+        padding: 0 4rem;
+        margin-right: 3rem;
+
+        &::placeholder {
+            font-size: 2.2rem;
+            padding: 0 2rem;
+        }
+    }
+
+    .btn {
+        font-weight: 700;
+        font-size: 3rem;
+    }
+}
+.error-message {
+    opacity: 0;
+}
+.error {
+    &-message {
+        position: absolute;
+        bottom: 3rem;
+        left: 7rem;
+        font-size: 2rem;
+        color: $Red;
+        // display: block;
+    }
+    & .url {
+        border: 2px solid $Red;
+    }
+}
+
+.shortenedUrls {
+    .urls {
+        background-color: #fff;
+        @include absCenter2;
+        width: 80%;
+        margin: 2rem auto;
+        border-radius: 1rem;
+        padding: 1rem 4rem;
+        box-shadow: 0.5rem 0.5rem 0.5rem rgba($color: #000000, $alpha: 0.5);
+    }
+    .result {
+        @include absCenter2;
+
+        .btn {
+            margin-left: 3rem;
+        }
+        .shortenedLink {
+            color: $Cyan;
+            font-weight: 700;
+        }
+    }
+}
