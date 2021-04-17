@@ -78,7 +78,7 @@ html {
   border: none;
   cursor: pointer;
   text-align: center;
-  padding: 1rem 4rem;
+  padding: 1.5rem 4rem;
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 0.3rem; }
@@ -146,6 +146,88 @@ html {
   to {
     transform: translate(-50%, -50%) scale(4);
     opacity: 0; } }
+
+.loading {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  background-color: #1d1b1b4b;
+  height: 200vh;
+  width: 100%;
+  position: fixed;
+  top: -100vh;
+  backdrop-filter: blur(1rem);
+  transition: 1s all;
+  z-index: 99; }
+
+#loader {
+  z-index: 99;
+  border: 12px solid #3b3054;
+  border-radius: 50%;
+  border-top: 12px solid #fff;
+  width: 7rem;
+  height: 7rem;
+  animation: spin 1s linear infinite;
+  top: 150vh;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  transition: 1s all; }
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg); } }
+
+.center {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: 1s all; }
+
+.footer {
+  display: grid;
+  width: 100%;
+  height: 35rem;
+  background-color: #232127;
+  grid-template-columns: 35% repeat(3, 15%) 1fr;
+  padding: 5rem;
+  grid-template-rows: 1fr; }
+
+.side {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem; }
+  .side__title {
+    color: #fff;
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin-bottom: 2rem; }
+  .side__links {
+    transition: 0.5s all;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem; }
+    .side__links:hover {
+      color: #2acfcf; }
+
+.side1 {
+  text-align: start; }
+
+.side5 {
+  display: flex;
+  flex-direction: row; }
+  .side5 svg {
+    margin-right: 3rem; }
+  .side5 .social__icon {
+    transition: 0.5s all;
+    cursor: pointer; }
+    .side5 .social__icon:hover {
+      fill: #2acfcf; }
 
 .main {
   position: relative;
@@ -252,11 +334,77 @@ html {
 .hero {
   display: flex;
   justify-content: space-between;
+  align-items: center; }
+  .hero__intro {
+    margin-left: 7rem; }
+    .hero__intro .heading__primary {
+      margin-bottom: 1rem;
+      font-size: 9rem; }
+    .hero__intro .paragraph__primary {
+      margin-bottom: 4rem;
+      font-size: 2.5rem; }
+  .hero__illustration--img {
+    width: 90%; }
+
+.section-statistics {
+  margin: 0 auto;
+  margin-top: 5rem;
+  max-width: 80%;
+  padding-bottom: 20rem; }
+  .section-statistics .statistics {
+    margin: 0 auto;
+    text-align: center; }
+    .section-statistics .statistics__description {
+      margin: 2rem 0;
+      color: #3b3054;
+      font-size: 2.5rem;
+      color: #9e9aa7; }
+    .section-statistics .statistics__stats {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -10rem; }
+      .section-statistics .statistics__stats .stats {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column; }
+        .section-statistics .statistics__stats .stats__logo {
+          background-color: #3b3054;
+          border-radius: 50%;
+          width: 10rem;
+          height: 10rem;
+          padding: 2.2rem;
+          position: relative;
+          align-self: flex-start;
+          margin-left: 7rem; }
+        .section-statistics .statistics__stats .stats--2 {
+          margin-top: 15rem; }
+        .section-statistics .statistics__stats .stats--3 {
+          margin-top: 30rem; }
+        .section-statistics .statistics__stats .stats__description {
+          background-color: #fff;
+          border-radius: 1rem;
+          padding: 5rem 3rem;
+          margin: 0 3rem;
+          margin-top: -4rem; }
+          .section-statistics .statistics__stats .stats__description--heading {
+            margin: 2rem 0; }
+
+.section__boost {
+  position: relative;
+  height: 30rem;
+  background-color: #3b3054;
+  display: flex;
   align-items: center;
-  padding: 0 4rem; }
-  .hero__intro .heading__primary {
-    margin-bottom: 1rem;
-    font-size: 9rem; }
-  .hero__intro .paragraph__primary {
-    margin-bottom: 4rem;
-    font-size: 2.5rem; }
+  justify-content: center; }
+  .section__boost .boost {
+    width: 100%;
+    background-image: url(../images/bg-boost-desktop.svg);
+    color: #fff;
+    text-align: center;
+    height: 100%;
+    padding-top: 10rem; }
+    .section__boost .boost .heading__secondary {
+      margin-bottom: 5rem; }

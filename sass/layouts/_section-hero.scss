@@ -2,9 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 4rem;
+    // padding: 0 10rem;
 
     &__intro {
+        margin-left: 7rem;
         .heading__primary {
             margin-bottom: 1rem;
             font-size: 9rem;
@@ -12,6 +13,11 @@
         .paragraph__primary {
             margin-bottom: 4rem;
             font-size: 2.5rem;
+        }
+    }
+    &__illustration {
+        &--img {
+            width: 90%;
         }
     }
 }

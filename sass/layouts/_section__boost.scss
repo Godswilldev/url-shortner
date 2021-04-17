@@ -1,0 +1,19 @@
+.section__boost {
+    position: relative;
+    height: 30rem;
+    background-color: $Dark-Violet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .boost {
+        width: 100%;
+        background-image: url(../images/bg-boost-desktop.svg);
+        color: #fff;
+        text-align: center;
+        height: 100%;
+        padding-top: 10rem;
+        .heading__secondary {
+            margin-bottom: 5rem;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.section-statistics {
+    margin: 0 auto;
+    margin-top: 5rem;
+    max-width: 80%;
+    padding-bottom: 20rem;
+
+    .statistics {
+        margin: 0 auto;
+        text-align: center;
+        &__description {
+            margin: 2rem 0;
+            color: $Dark-Violet;
+            font-size: 2.5rem;
+            color: $Grayish-Violet;
+        }
+
+        &__stats {
+            position: relative;
+            display: flex;
+            // flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: -10rem;
+
+            .stats {
+                @include absCenter2;
+                flex-direction: column;
+                &__logo {
+                    background-color: $Dark-Violet;
+                    border-radius: 50%;
+                    width: 10rem;
+                    height: 10rem;
+                    padding: 2.2rem;
+                    position: relative;
+                    align-self: flex-start;
+                    margin-left: 7rem;
+                }
+                &--2 {
+                    margin-top: 15rem;
+                }
+                &--3 {
+                    margin-top: 30rem;
+                }
+
+                &__description {
+                    background-color: #fff;
+                    border-radius: 1rem;
+                    padding: 5rem 3rem;
+                    margin: 0 3rem;
+                    margin-top: -4rem;
+                    &--heading {
+                        margin: 2rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
