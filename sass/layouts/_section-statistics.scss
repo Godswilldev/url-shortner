@@ -3,6 +3,9 @@
     margin-top: 5rem;
     max-width: 80%;
     padding-bottom: 20rem;
+    @include respond(tab-port) {
+        padding-bottom: 10rem;
+    }
 
     .statistics {
         margin: 0 auto;
@@ -11,7 +14,10 @@
             margin: 2rem 0;
             color: $Dark-Violet;
             font-size: 2.5rem;
-            color: $Grayish-Violet;
+            // color: $Grayish-Violet;
+            @include respond(tab-port) {
+                margin-bottom: 7rem;
+            }
         }
 
         &__stats {
@@ -21,6 +27,10 @@
             justify-content: center;
             align-items: center;
             margin-top: -10rem;
+            @include respond(tab-port) {
+                flex-direction: column;
+                margin: 0;
+            }
 
             .stats {
                 @include absCenter2;
@@ -34,12 +44,22 @@
                     position: relative;
                     align-self: flex-start;
                     margin-left: 7rem;
+
+                    @include respond(tab-port) {
+                        align-self: unset;
+                        margin-left: 0;
+                        height: 100%;
+                        width: 12rem;
+                    }
                 }
                 &--2 {
                     margin-top: 15rem;
                 }
                 &--3 {
                     margin-top: 30rem;
+                }
+                @include respond(tab-port) {
+                    margin: 2rem 0;
                 }
 
                 &__description {
@@ -50,6 +70,9 @@
                     margin-top: -4rem;
                     &--heading {
                         margin: 2rem 0;
+                    }
+                    @include respond(tab-port) {
+                        text-align: center;
                     }
                 }
             }

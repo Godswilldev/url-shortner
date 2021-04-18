@@ -1,6 +1,6 @@
 .main {
     position: relative;
-    background-color: $Gray;
+    background-color: rgba($Gray, $alpha: 0.5);
     margin-top: 25rem;
 }
 #section__form {
@@ -20,6 +20,12 @@
     display: grid;
     grid-template-columns: 80% 1fr;
     border-radius: 1rem;
+    @include respond(tab-port) {
+        grid-template-columns: 1fr;
+        padding: 3rem;
+        height: 30rem;
+        // justify-content: space-between;
+    }
 
     .url {
         border-radius: 1rem;
@@ -34,11 +40,23 @@
             font-size: 2.2rem;
             padding: 0 2rem;
         }
+        @include respond(tab-port) {
+            margin: 2rem auto;
+            width: 100%;
+        }
     }
 
     .btn {
         font-weight: 700;
         font-size: 3rem;
+
+        @include respond(tab-land) {
+            font-size: 2rem;
+            padding: 0;
+        }
+        @include respond(tab-port) {
+            font-size: 4rem;
+        }
     }
 }
 .error-message {
@@ -52,6 +70,12 @@
         font-size: 2rem;
         color: $Red;
         // display: block;
+
+        @include respond(tab-port) {
+            bottom: 0;
+            top: 1.5rem;
+            left: 4rem;
+        }
     }
     & .url {
         border: 2px solid $Red;
@@ -64,19 +88,58 @@
         @include absCenter2;
         width: 80%;
         margin: 2rem auto;
-        border-radius: 1rem;
+        border-radius: 2rem;
         padding: 1rem 4rem;
         box-shadow: 0.5rem 0.5rem 0.5rem rgba($color: #000000, $alpha: 0.5);
+        @include respond(tab-port) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-around;
+            height: 35rem;
+            text-align: start;
+            overflow: hidden;
+            // padding: 0;
+        }
+        .paragraph__primary {
+            color: #000000;
+            font-weight: 700;
+            @include respond(tab-port) {
+                font-size: 3rem;
+                // width: 100%;
+            }
+            @include respond(phone) {
+                font-size: 2.2rem;
+                // width: 100%;
+            }
+        }
     }
     .result {
         @include absCenter2;
 
+        @include respond(tab-port) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0 auto;
+            width: 100%;
+            overflow: hidden;
+        }
         .btn {
             margin-left: 3rem;
+            @include respond(tab-port) {
+                margin: 0 auto;
+                width: 100%;
+                font-size: 3rem;
+                font-weight: 700;
+            }
         }
         .shortenedLink {
             color: $Cyan;
             font-weight: 700;
+            @include respond(tab-port) {
+                font-size: 4rem;
+                margin-bottom: 2rem;
+            }
         }
     }
 }
