@@ -24,6 +24,27 @@ buttons.forEach((btn) => {
   });
 });
 
+///////////////////////////////////////
+///////////////add loading icon
+////////////////////////////////////////
+const addLoadingIcon = () => {
+  document.querySelector("#loader").style.display = "block";
+  document.querySelector("#loader").style.opacity = 1;
+  document.querySelector("#loader").style.visibility = "visible";
+  document.querySelector(".loading").style.display = "block";
+  document.querySelector(".loading").style.opacity = 1;
+  document.querySelector(".loading").style.visibility = "visible";
+};
+
+const removeLoadingIcon = () => {
+  document.querySelector("#loader").style.display = "none";
+  document.querySelector("#loader").style.opacity = 0;
+  document.querySelector("#loader").style.visibility = "hidden";
+  document.querySelector(".loading").style.display = "none";
+  document.querySelector(".loading").style.opacity = 0;
+  document.querySelector(".loading").style.visibility = "hidden";
+};
+
 /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
@@ -48,27 +69,28 @@ form__url.addEventListener("submit", function (e) {
     form__url.classList.remove("error");
     document.querySelector(".error-message").style.opacity = 0;
     //add loading icon
-    document.querySelector("#loader").style.display = "block";
-    document.querySelector("#loader").style.opacity = 1;
-    document.querySelector("#loader").style.visibility = "visible";
-    document.querySelector(".loading").style.display = "block";
-    document.querySelector(".loading").style.opacity = 1;
-    document.querySelector(".loading").style.visibility = "visible";
+    addLoadingIcon()(
+      // document.querySelector("#loader").style.display = "block";
+      // document.querySelector("#loader").style.opacity = 1;
+      // document.querySelector("#loader").style.visibility = "visible";
+      // document.querySelector(".loading").style.display = "block";
+      // document.querySelector(".loading").style.opacity = 1;
+      // document.querySelector(".loading").style.visibility = "visible";
 
-    (async function () {
-      try {
-        const urlApi = ` https://api.shrtco.de/v2/shorten?url=${urlContent}`;
-        //   console.log(urlApi);
-        const res = await fetch(urlApi);
-        if (!res.ok) {
-          throw new Error("invalid url");
-        } else {
-          const data = await res.json();
-          // console.log(data.result.short_link2);
+      async function () {
+        try {
+          const urlApi = ` https://api.shrtco.de/v2/shorten?url=${urlContent}`;
+          //   console.log(urlApi);
+          const res = await fetch(urlApi);
+          if (!res.ok) {
+            throw new Error("invalid url");
+          } else {
+            const data = await res.json();
+            // console.log(data.result.short_link2);
 
-          const shortenedUrl = data.result.short_link2;
+            const shortenedUrl = data.result.short_link2;
 
-          let html = `
+            let html = `
             <div class="urls">
               <p class="paragraph__primary inputLink">
                 ${inputLink}
@@ -82,22 +104,24 @@ form__url.addEventListener("submit", function (e) {
             </div>
 
           `;
-          shortenedUrls.insertAdjacentHTML("beforeend", html);
-          document.querySelector(".url").value = "";
-          // remove loader icon
-          document.querySelector("#loader").style.display = "none";
-          document.querySelector("#loader").style.opacity = 0;
-          document.querySelector("#loader").style.visibility = "hidden";
-          document.querySelector(".loading").style.display = "none";
-          document.querySelector(".loading").style.opacity = 0;
-          document.querySelector(".loading").style.visibility = "hidden";
+            shortenedUrls.insertAdjacentHTML("beforeend", html);
+            document.querySelector(".url").value = "";
+            // remove loader icon
+            removeLoadingIcon();
+            // document.querySelector("#loader").style.display = "none";
+            // document.querySelector("#loader").style.opacity = 0;
+            // document.querySelector("#loader").style.visibility = "hidden";
+            // document.querySelector(".loading").style.display = "none";
+            // document.querySelector(".loading").style.opacity = 0;
+            // document.querySelector(".loading").style.visibility = "hidden";
 
-          localStorage.setItem("shortenedLinks", html);
+            localStorage.setItem("shortenedLinks", html);
+          }
+        } catch (error) {
+          console.error(error.message);
         }
-      } catch (error) {
-        console.error(error.message);
       }
-    })();
+    )();
   }
 });
 shortenedUrls.insertAdjacentHTML(
